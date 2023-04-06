@@ -32,6 +32,33 @@ Cypress.Commands.add("login", (email, password) => {
   cy.visit("http://zero.webappsecurity.com/login.html");
 
   cy.get(userInput).type(email);
-  cy.get(passwordInput).type(password);
+  cy.get(passwordInput).type(password, { sensitive: true });
   cy.get(loginButton).click();
+  return cy;
+});
+
+Cypress.Commands.add("validateLogin", (optionsEF) => {
+  const account_summary_tab = "#account_summary_tab";
+  const account_activity_tab = "#account_activity_tab";
+  const transfer_founds_tab = "#transfer_funds_tab";
+  const error = ".alert.alert-error";
+  if (optionsEF == 1) {
+    cy.get(account_summary_tab).should("be.visible");
+    cy.get(account_activity_tab).should("be.visible");
+    cy.get(transfer_founds_tab).should("be.visible");
+  } else {
+    cy.get(error).should("be.visible");
+  }
+});
+
+Cypress.Commands.overwrite("type", (originalFn, element, text, options) => {
+  if (options && options.sensitive) {
+    options.log = false;
+    Cypress.log({
+      $el: element,
+      name: "type",
+      message: "*".repeat(text.length),
+    });
+  }
+  return originalFn(element, text, options);
 });

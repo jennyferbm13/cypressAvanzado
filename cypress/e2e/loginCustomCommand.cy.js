@@ -1,13 +1,9 @@
 describe("Login con custom command", function () {
-  /*beforeEach(() => {
-    loginPage.visit();
-  });*/
   it("Login erroneo", function () {
-    cy.login("lalla", "hola");
-    //loginPage.validateErrorLogin();
+    cy.login("lalla", "hola").validateLogin(2); //error
   });
 
   it("Login exitoso", function () {
-    cy.login("username", "password");
+    cy.login("username", "password").validateLogin(1); //successed
   });
 });
