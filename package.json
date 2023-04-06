@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress open",
+    "variable:entorno":"cypress open --env VARIABLE_DE_ENTORNO=valor",
+    "variable:entorno:sistema":"set NODE_ENV=VARIABLE_DE_DESARROLLO && cypress open” instead of “export NODE_ENV=VARIABLE_DE_DESARROLLO && cypress open"
   },
   "keywords": [],
   "author": "",
