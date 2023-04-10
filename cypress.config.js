@@ -6,6 +6,7 @@ const {
 
 const webpack = require("@cypress/webpack-preprocessor");
 const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
+const allureWriter = require("@shelex/cypress-allure-plugin/writer");
 
 const values = [];
 
@@ -48,6 +49,7 @@ async function setupNodeEvents(on, config) {
       },
     })
   );
+  allureWriter(on, config);
 
   return config;
 }

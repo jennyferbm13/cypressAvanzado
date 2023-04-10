@@ -9,10 +9,12 @@
     "variable:entorno": "cypress open --env VARIABLE_DE_ENTORNO=valor",
     "variable:entorno:sistema": "set NODE_ENV=VARIABLE_DE_DESARROLLO && cypress open” instead of “export NODE_ENV=VARIABLE_DE_DESARROLLO && cypress open",
     "cucumber:task": "Cypress run --env tags=@probando",
-    "delete:results":"rm -r cypress/results/* || true",
+    "delete:results": "rm -r cypress/results/* || true",
     "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json",
     "mochawesome:report": "npx mochawesome-merge 'cypress/results/mochawesome/*.json' > mochawesome.json && npx marge mochawesome.json",
-    "junit:reports":"jrm cypress/results/junit/combined-report.xml 'cypress/results/junit/*.xml'"
+    "junit:reports": "jrm cypress/results/junit/combined-report.xml 'cypress/results/junit/*.xml'",
+    "allure:report": "npx cypress run --env allure=true",
+    "allure:serve":"allure serve allure-results"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^16.0.3",
     "@cypress/webpack-preprocessor": "^5.17.0",
+    "@shelex/cypress-allure-plugin": "^2.38.3",
     "cypress": "^12.9.0",
     "cypress-image-snapshot": "^4.0.1",
     "cypress-multi-reporters": "^1.6.3",
