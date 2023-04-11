@@ -15,7 +15,8 @@
     "junit:reports": "jrm cypress/results/junit/combined-report.xml 'cypress/results/junit/*.xml'",
     "allure:report": "npx cypress run --env allure=true",
     "allure:serve":"allure serve allure-results",
-    "allure:server:docker":"allure serve dockerReports"
+    "allure:server:docker":"allure serve dockerReports",
+    "run:dashboard": "cypress run --record --key 62a3c45b-d148-45ef-aca4-f6ac9fd95fa5"
   },
   "keywords": [],
   "author": "",
