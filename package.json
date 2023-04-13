@@ -14,8 +14,8 @@
     "mochawesome:report": "npx mochawesome-merge 'cypress/results/mochawesome/*.json' > mochawesome.json && npx marge mochawesome.json",
     "junit:reports": "jrm cypress/results/junit/combined-report.xml 'cypress/results/junit/*.xml'",
     "allure:report": "npx cypress run --env allure=true",
-    "allure:serve":"allure serve allure-results",
-    "allure:server:docker":"allure serve dockerReports",
+    "allure:serve": "allure serve allure-results",
+    "allure:server:docker": "allure serve dockerReports",
     "run:dashboard": "cypress run --record --key 62a3c45b-d148-45ef-aca4-f6ac9fd95fa5"
   },
   "keywords": [],
@@ -25,6 +25,7 @@
     "@badeball/cypress-cucumber-preprocessor": "^16.0.3",
     "@cypress/webpack-preprocessor": "^5.17.0",
     "@shelex/cypress-allure-plugin": "^2.38.3",
+    "cy2": "^4.0.6",
     "cypress": "^12.9.0",
     "cypress-image-snapshot": "^4.0.1",
     "cypress-multi-reporters": "^1.6.3",
